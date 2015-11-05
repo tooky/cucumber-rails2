@@ -1,4 +1,4 @@
-require "cucumber/rails2/version"
+require "cucumber/rails/version"
 
 module Cucumber
   module Rails2
