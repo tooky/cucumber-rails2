@@ -4,3 +4,4 @@ source 'https://rubygems.org'
 gemspec
 
 gem 'rails'
+gem 'capybara', require: nil

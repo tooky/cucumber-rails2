@@ -10,14 +10,14 @@ Feature: Working with Web Pages
           When the home page is open
           Then the greeting should be "Hello, world!"
       """
-    And a file named "features/support/rails.rb" with:
-      """
-      ENV['RAILS_ENV'] ||= 'test'
-      require File.expand_path('../../../config/environment', __FILE__)
-      require 'cucumber/rails'
-      require 'capybara/rails'
-      require 'capybara/cucumber'
-      """
+    #And a file named "features/support/rails.rb" with:
+      #"""
+      #ENV['RAILS_ENV'] ||= 'test'
+      #require File.expand_path('../../../config/environment', __FILE__)
+      #require 'cucumber/rails'
+      #require 'capybara/rails'
+      #require 'capybara/cucumber'
+      #"""
     And a file named "features/support/steps.rb" with:
       """
       When(/^the home page is open$/) do
