@@ -5,7 +5,7 @@ require 'cucumber/rails/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "cucumber-rails2"
-  spec.version       = Cucumber::Rails2::VERSION
+  spec.version       = Cucumber::Rails::VERSION
   spec.authors       = ["Steve Tooke"]
   spec.email         = ["steve@boxjump.co.uk"]
 
@@ -20,6 +20,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency "cucumber", [">= 2", "< 3"]
+  spec.add_dependency "capybara", "~> 2.5"
 
   spec.add_development_dependency "bundler", "~> 1.10"
   spec.add_development_dependency "rake", "~> 10.0"
