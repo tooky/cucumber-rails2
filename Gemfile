@@ -5,3 +5,5 @@ gemspec
 
 gem 'rails'
 gem 'capybara', require: nil
+gem 'rspec-rails', require: nil
+gem 'ammeter', require: nil
