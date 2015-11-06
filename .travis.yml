@@ -1,4 +1,13 @@
 language: ruby
+sudo: false
+
+bundler_args: "--without documentation --retry=3 --jobs=3"
+
 rvm:
-  - 2.1.5
+  - 2.2
+  #- 2.1
+  #- 2.0.0
+  #- 1.9.3
+  #- jruby #fingers crossed
+
 before_install: gem install bundler -v 1.10.6

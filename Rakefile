@@ -16,7 +16,7 @@ namespace :generate do
 
     Dir.chdir(app_dir) do
       Bundler.with_clean_env do
-        sh "bundle install --gemfile ./Gemfile --path /Users/steve/Code/rspec/rspec-rails/../bundle --retry=3 --jobs=3"
+        sh "bundle install --gemfile ./Gemfile --retry=3 --jobs=3"
         application_file = File.read("config/application.rb")
         sh "rm config/application.rb"
         File.open("config/application.rb", "w") do |f|
