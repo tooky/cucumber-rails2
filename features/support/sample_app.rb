@@ -12,3 +12,8 @@ Before do
   # copy the workspace
   system('cp', '-r', example_app_dir, aruba_dir)
 end
+
+Before("@capybara") do
+  gem 'capybara', group: :test
+end
+

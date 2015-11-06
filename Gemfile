@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 gemspec
 
 gem 'rails'
+gem 'sqlite3'
 gem 'capybara', require: nil
 gem 'rspec-rails', require: nil
 gem 'ammeter', require: nil

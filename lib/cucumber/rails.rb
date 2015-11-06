@@ -1,3 +1,9 @@
+begin
+  require 'capybara/rails'
+  require 'capybara/cucumber'
+rescue LoadError
+end
+
 module Cucumber
   module Rails
     module World
