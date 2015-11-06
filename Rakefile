@@ -26,7 +26,7 @@ namespace :generate do
   task :app do
     app_dir = File.expand_path('./tmp/example_app')
 
-    sh "bundle exec rails new #{app_dir} --skip-javascript --skip-sprockets --skip-git --skip-test-unit --skip-bundle --template=test_support/app_templates/hello_world.rb"
+    sh "bundle exec rails new #{app_dir} --skip-javascript --skip-sprockets --skip-git --skip-test-unit --skip-bundle --template=example_app_generator/template.rb"
 
     Dir.chdir(app_dir) do
       application_file = File.read("config/application.rb")
