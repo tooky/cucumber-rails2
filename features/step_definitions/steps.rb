@@ -1,8 +1,7 @@
-TEMPLATE_DIR=File.join(File.expand_path("."), "test_support", "app_templates")
+Then(/^it should pass$/) do
+  expect(last_command_started).to be_successfully_executed
+end
 
-Given(/^a hello world rails application with cucumber-rails2 installed$/) do
-  @app_dir = "hello_world"
-  @template_file = File.join(TEMPLATE_DIR, "#{@app_dir}.rb")
-  run_simple "bundle exec rails new hello_world --skip-test-unit --skip-spring --skip-active-record --skip-javascript -m #{@template_file}"
-  cd @app_dir
+Then(/^it should fail$/) do
+  expect(last_command_started).to have_failed_running
 end
