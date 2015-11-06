@@ -16,7 +16,9 @@ Before do
   set_environment_variable("BUNDLE_GEMFILE", File.join(aruba_dir, "Gemfile"))
 end
 
-Before("@capybara-installed") do
-  gem 'capybara', group: :test
+Before("@capybara-not-installed") do
+  with_file_content("./Gemfile") do |gemfile|
+    overwrite_file "./Gemfile", gemfile.gsub(/^.*\bgem ['"]capybara.*$/, '')
+  end
 end
 

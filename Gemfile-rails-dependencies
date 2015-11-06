@@ -1,0 +1,23 @@
+version_file = File.expand_path("../.rails-version", __FILE__)
+case version = ENV['RAILS_VERSION'] || (File.exist?(version_file) && File.read(version_file).chomp)
+when /master/
+  gem "rails", :git => "git://github.com/rails/rails.git"
+  gem "arel", :git => "git://github.com/rails/arel.git"
+  gem "journey", :git => "git://github.com/rails/journey.git"
+  gem "activerecord-deprecated_finders", :git => "git://github.com/rails/activerecord-deprecated_finders.git"
+  gem "rails-observers", :git => "git://github.com/rails/rails-observers"
+  gem 'sass-rails', :git => "git://github.com/rails/sass-rails.git"
+  gem 'sprockets-rails', :git => "git@github.com:rails/sprockets-rails.git"
+  gem 'sprockets', :git => 'git@github.com:rails/sprockets.git'
+  gem 'coffee-rails', :git => "git://github.com/rails/coffee-rails.git"
+  gem 'rack', :git => 'git://github.com/rack/rack.git'
+  gem 'i18n', :git => 'git://github.com/svenfuchs/i18n.git', :branch => 'master'
+when /stable$/
+  gem "rails", :git => "git://github.com/rails/rails.git", :branch => version
+when nil, false, ""
+  gem "rails", "~> 4.0.4"
+else
+  gem "rails", version
+end
+
+gem "test-unit" if RUBY_VERSION >= '2.2.0' && version =~ /3[.-]2[.-]/

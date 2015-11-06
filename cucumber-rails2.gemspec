@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'cucumber/rails/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "cucumber-rails2"
+  spec.name          = "cucumber-rails"
   spec.version       = Cucumber::Rails::VERSION
   spec.authors       = ["Steve Tooke"]
   spec.email         = ["steve@boxjump.co.uk"]
@@ -26,5 +26,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "aruba", "~> 0.10"
   spec.add_development_dependency "rspec", "~> 3.3"
-  spec.add_development_dependency "ammeter", "= 1.1.2"
+  spec.add_development_dependency "ammeter", "= 1.1.3"
 end

@@ -7,7 +7,6 @@ Feature: Using Capybara to drive a web interface
   If Capybara is included in your `Gemfile` cucumber-rails will allow
   you to use the Capybara DSL within your step definitions.
 
-  @capybara-installed
   Scenario: Visit a page with capybara
     Given a file named "features/hello_world.feature" with:
       """
@@ -24,6 +23,7 @@ Feature: Using Capybara to drive a web interface
     When I run `bundle exec cucumber -S`
     Then it should pass
 
+  @capybara-not-installed
   Scenario: Warn developer when Capybara is not included
     Given a file named "features/hello_world.feature" with:
       """
