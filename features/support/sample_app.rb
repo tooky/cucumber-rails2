@@ -16,7 +16,7 @@ Before do
   set_environment_variable("BUNDLE_GEMFILE", File.join(aruba_dir, "Gemfile"))
 end
 
-Before("@capybara") do
+Before("@capybara-installed") do
   gem 'capybara', group: :test
 end
 
