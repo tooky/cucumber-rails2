@@ -13,6 +13,7 @@ in_root do
     |    :groups => [:development, :test],
     |    :require => false
     |gem 'capybara', "~> 2.5"
+    |gem 'selenium-webdriver'
     |eval_gemfile '#{rails_dependencies_gemfile}'
   EOT
 end

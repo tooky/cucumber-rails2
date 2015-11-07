@@ -7,12 +7,20 @@ Cucumber::Rake::Task.new(:features)
 
 task :default => [:spec, :features]
 
+task :travis do
+  ["rake clobber:app", "rake spec", "rake features"].each do |cmd|
+    puts "Starting to run #{cmd}..."
+    system("export DISPLAY=:99.0 && bundle exec #{cmd}")
+    raise "#{cmd} failed!" unless $?.exitstatus == 0
+  end
+end
+
 namespace :generate do
   desc "generate a fresh app with rspec installed"
   task :app do
     app_dir = File.expand_path('./tmp/example_app')
 
-    sh "bundle exec rails new #{app_dir} -f --skip-active-record --skip-javascript --skip-sprockets --skip-git --skip-test-unit --skip-bundle --template=example_app_generator/base_template.rb"
+    sh "bundle exec rails new #{app_dir} -f --skip-git --skip-test-unit --skip-bundle --template=example_app_generator/base_template.rb"
 
     Dir.chdir(app_dir) do
       Bundler.with_clean_env do

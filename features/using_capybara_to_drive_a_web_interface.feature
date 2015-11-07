@@ -23,6 +23,34 @@ Feature: Using Capybara to drive a web interface
     When I run `bundle exec cucumber -S`
     Then it should pass
 
+  Scenario: Capybara provides an `@javascript` tag to run with a browser
+    Given a file named "app/assets/javascripts/hello_world.js" with:
+      """
+      $(document).ready(function () {
+        $("<h2>Hello, javascript</h2>").insertAfter("h1")
+      })
+      """
+    And a file named "features/hello_world.feature" with:
+      """
+      Feature:
+        @javascript
+        Scenario:
+          When the home page is open
+          Then the JS message is visible
+      """
+    And a file named "features/step_definitions/steps.rb" with:
+      """
+      When(/^the home page is open$/) do
+        visit("/")
+      end
+
+      Then(/^the JS message is visible$/) do
+        fail "JavaScript doesn't work" unless page.has_content?("Hello, javascript")
+      end
+      """
+    When I run `bundle exec cucumber -S`
+    Then it should pass
+
   @capybara-not-installed
   Scenario: Warn developer when Capybara is not included
     Given a file named "features/hello_world.feature" with:
