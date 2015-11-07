@@ -19,3 +19,4 @@ module Cucumber
 end
 
 World(Cucumber::Rails::World)
+
