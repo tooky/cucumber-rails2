@@ -16,6 +16,15 @@ Feature: Handling errors in the application
       When(/^the error page is open$/) do
         visit("/error")
       end
+
+      Then(/^the status code should be (\d+)$/) do |expected_code|
+        expected_code = expected_code.to_i
+        actual_code = page.status_code.to_i
+
+        unless actual_code == expected_code
+          fail "status code was: #{actual_code}, expected: #{expected_code}"
+        end
+      end
       """
 
   Scenario: Errors bubble up to Cucumber
@@ -38,6 +47,7 @@ Feature: Handling errors in the application
         @allow-rescue
         Scenario:
           When the error page is open
+          Then the status code should be 500
       """
     When I run `bundle exec cucumber`
     Then it should pass
