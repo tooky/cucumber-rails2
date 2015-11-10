@@ -7,6 +7,11 @@ Feature: Using Capybara to drive a web interface
   If Capybara is included in your `Gemfile` cucumber-rails will allow
   you to use the Capybara DSL within your step definitions.
 
+  By default, Capybara will use rack-test, to simulate a browser within
+  the same process as your rails application. Using an `@javascript` tag
+  you can have capybara use a real browser – allowing you to check the
+  result of javascript interactions with your website.
+
   Scenario: Visit a page with capybara
     Given a file named "features/hello_world.feature" with:
       """
