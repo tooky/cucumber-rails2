@@ -8,5 +8,6 @@ generate('cucumber:install')
 
 route "root to: 'welcome#index'"
 route "get '/error', to: 'welcome#error'"
+route "get '/data', to: 'welcome#data'"
 copy_file "app/controllers/welcome_controller.rb"
 copy_file "app/views/welcome/index.html.erb"
