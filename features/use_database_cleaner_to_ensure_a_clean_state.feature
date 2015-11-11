@@ -33,3 +33,20 @@ Feature: Use database cleaner to ensure a clean state
       """
     When I run `bundle exec cucumber`
     Then it should pass
+
+  @database-cleaner-not-installed
+  Scenario: Database cleaner is not required
+    Given a file named "features/posts.feature" with:
+      """
+      Feature:
+        Scenario:
+          When I do it
+      """
+    And a file named "features/step_definitions/posts_steps.rb" with:
+      """
+      When /^I do it$/ do
+        visit '/'
+      end
+      """
+    When I run `bundle exec cucumber`
+    Then it should pass

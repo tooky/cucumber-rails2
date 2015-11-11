@@ -22,3 +22,8 @@ Before("@capybara-not-installed") do
   end
 end
 
+Before("@database-cleaner-not-installed") do
+  with_file_content("./Gemfile") do |gemfile|
+    overwrite_file "./Gemfile", gemfile.gsub(/^.*\bgem ['"](database_cleaner).*$/, '')
+  end
+end
