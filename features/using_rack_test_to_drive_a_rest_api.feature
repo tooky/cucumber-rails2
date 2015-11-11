@@ -1,5 +1,10 @@
 Feature: Using rack-test to drive a REST API
 
+  Rack::Test is a small, simple testing API for Rack apps. If you're
+  application is providing a REST API, and you don't need to simulate
+  a browser using Capybara, Cucumber-Rails makes the Rack::Test API
+  available. This will allow you to test your API endpoints in-process.
+
   Scenario: Compare a JSON response
     Given a file named "features/hello_world.feature" with:
       """
