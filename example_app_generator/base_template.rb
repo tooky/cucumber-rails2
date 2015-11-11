@@ -14,6 +14,7 @@ in_root do
     |    :require => false
     |gem 'capybara', "~> 2.5"
     |gem 'selenium-webdriver'
+    |gem 'database_cleaner'
     |eval_gemfile '#{rails_dependencies_gemfile}'
   EOT
 end
