@@ -1,5 +1,6 @@
-require 'cucumber/rails/capybara'
 require 'cucumber/rails/allow_rescue'
+require 'cucumber/rails/capybara'
+require 'cucumber/rails/database'
 
 require 'rack/test'
 module Cucumber
@@ -23,6 +24,18 @@ World(Cucumber::Rails::RackTest)
 begin
   require 'database_cleaner'
 
+  Before('@javascript') do
+    Cucumber::Rails::Database.before_js
+  end
+
+  Before('~@javascript') do
+    Cucumber::Rails::Database.before_non_js
+  end
+
+  After do
+    Cucumber::Rails::Database.after
+  end
+
   Before do
     DatabaseCleaner.start
   end
@@ -30,5 +43,6 @@ begin
   After do
     DatabaseCleaner.clean
   end
+
 rescue LoadError => _ignore_if_database_cleaner_not_present
 end
